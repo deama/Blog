@@ -1,0 +1,30 @@
+version: "3.3"
+services:
+ nginx:
+  container_name: nginx
+  image: nginx
+  ports:
+  - target: 80
+    published: 80
+    protocol: tcp
+  volumes:
+  - type: bind
+    source: ./nginx/nginx.conf
+    target: /etc/nginx/nginx.conf
+  depends_on:
+  - blog
+
+ blog:
+  container_name: blog
+  image: blog
+  build:
+   context: ./blog
+   args:
+   - MYSQL_DB_TEST=${MYSQL_DB_TEST}
+   - SECRET_KEY=${SECRET_KEY}
+   - MYSQL_DB=${MYSQL_DB}
+   - MYSQL_HOST=${MYSQL_HOST}
+   - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+   - MYSQL_USER=${MYSQL_USER}
+   - ACCESS_ID=${ACCESS_ID}
+   - ACCESS_SECRET_ID=${ACCESS_SECRET_ID}

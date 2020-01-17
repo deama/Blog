@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+	<div class="form">
+		<form method="POST" action="" enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+			{% if form.new_login.errors %}
+				{{ form.new_login }}
+				<div class ="error">
+					{% for error in form.new_login.errors %}
+						<span>{{ error }} </span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.new_login }}<span> New Login</span>
+			{% endif %}
+			<br>
+			
+			{{ form.image }}
+			<br>
+
+			{{ form.submit }}
+			<br><br>
+			{{ form.delete }}
+		</form>
+	</div>
+{%endblock%}
+

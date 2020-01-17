@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+	<div class="table">
+		{% for post in posts %}
+		<p>{{ post["name"] }}: {{ post["post"] }}</p>
+		<img src="{{ post.image }}" width="140" height="100">
+		{% endfor %}
+	</div>
+{% endblock %}

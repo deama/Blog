@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<style>
+	td, th, tr
+	{
+		border: 1px;
+		border: solid;
+
+		padding: 5px;
+
+		text-align: center;
+
+	}
+
+</style>
+
+<table>
+	<tr>
+		<th>Player: {{ allTimeHighName }}, has the highest score of:</th>
+        </tr>
+	<tr>
+                <td>{{ allTimeHigh }}</td>
+        </tr>
+</table>
+<br>
+<table>
+	<tr>
+		<th colspan="0">Your Scores</th>
+	</tr>
+	{% for entry in scoreEntries %}	
+		<tr>
+			<td>
+				{{ entry.score }}
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}

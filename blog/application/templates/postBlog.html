@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+	<div class="form">
+		<form method="POST" action="">
+			{{ form.hidden_tag() }}
+				{% if form.text.errors %}
+					{{ form.text }}
+					<div class ="error">
+						{% for error in form.text.errors %}
+							<span>{{ error }} </span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.text }}<span> Post</span>
+				{% endif %}
+			<br>
+
+			{{ form.submit }}
+		</form>
+
+		{% if posted == True %}
+			<p>posted</p>
+		{% endif %}
+	</div>
+{% endblock %}
