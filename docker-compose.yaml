@@ -28,3 +28,11 @@ services:
    - MYSQL_USER=${MYSQL_USER}
    - ACCESS_ID=${ACCESS_ID}
    - ACCESS_SECRET_ID=${ACCESS_SECRET_ID}
+
+ xray:
+  container_name: xray
+  image: amazon/aws-xray-daemon
+  ports:
+  - target: 2000
+    published: 0
+    protocol: udp

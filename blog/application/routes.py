@@ -1,10 +1,9 @@
 from sqlalchemy import desc
 from flask import render_template, redirect, url_for, request, jsonify, session
-from application import app, db, bcrypt, login_manager, socketio, s3
+from application import app, db, bcrypt, login_manager, s3
 from application.forms import RegistrationForm, LoginForm, AccountUpdateForm, BlogForm
 from application.models import Account_details, Blog
 from flask_login import login_user, current_user, logout_user, login_required
-from flask_socketio import SocketIO, emit
 import boto3
 
 #db.create_all()
